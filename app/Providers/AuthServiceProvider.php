@@ -24,5 +24,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::policy(Task::class, TaskPolicy::class);
+        Passport::tokensCan([
+            'manager' => 'Manage all tasks and assignments',
+            'user' => 'View and update assigned tasks',
+        ]);
+        Passport::ignoreCsrfToken();
+        Passport::enablePasswordGrant();
     }
 }
