@@ -13,7 +13,7 @@ class TaskPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->hasRole('manager');
     }
 
     /**
@@ -53,7 +53,7 @@ class TaskPolicy
      */
     public function updateStatus(User $user, Task $task): bool
     {
-        return $user->hasPermissionTo('task.status.update', 'api');
+        return $user->hasPermissionTo('task.update', 'api');
     }
 
     /**

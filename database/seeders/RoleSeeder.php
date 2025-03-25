@@ -21,6 +21,7 @@ class RoleSeeder extends Seeder
             'task.update',
             'task.view',
             'task.assign',
+            'task.status.update',
         ]);
 
         $user->syncPermissions([
